@@ -63,7 +63,7 @@ module M2yLydians
   KEYS_LIST_PATH = '/PIXChaveListar'
   REGISTER_KEY_PATH = '/PIXChaveIncluir'
   DELETE_KEY_PATH = '/PIXChaveExcluir'
-  SEARCH_KEY_PATH = '/PIXConsultar'
+  SEARCH_KEY_PATH = '/PIXConsultar_v2'
   GET_PIX_BANKS = '/PIXParticipantes'
   PERFORM_PIX_PATH = '/PIXTransferir_v2'
   RETURN_PIX_PATH = '/PIXDevolver_v2'
