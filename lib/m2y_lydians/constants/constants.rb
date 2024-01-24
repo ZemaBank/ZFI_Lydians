@@ -68,7 +68,7 @@ module M2yLydians
   PERFORM_PIX_PATH = '/PIXTransferir_v2'
   RETURN_PIX_PATH = '/PIXDevolver_v2'
   QRCODE_GENERATE_STATIC = '/PIXQRCodeGerarEstat'
-  QRCODE_DECODE = '/PIXQRCodeConsultar_v2'
+  QRCODE_DECODE = '/PIXQRCodeConsultar_v3'
 
   #PIX KEY CLAIMS RECEIVED
   RECEIVED_KEY_CLAIM_LIST = '/PIXRecReivListar'
