@@ -1,44 +1,50 @@
-# M2yLydians
+![image](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/m2y_lydians`. To experiment with that code, run `bin/console` for an interactive prompt.
+# M2Y Lydians
 
-TODO: Delete this and the text above, and describe your gem
+GEM para comunicação com rotinas da [Lydians](https://soapix-hml.zemafinanceira.com/).
 
-## Installation
+## Instalação
 
-Add this line to your application's Gemfile:
+Para instalar a GEM, adicione a linha abaixo no Gemfile do seu projeto.
 
 ```ruby
 gem 'm2y_lydians'
 ```
 
-And then execute:
+E então execute:
 
     $ bundle install
 
-Or install it yourself as:
+Ou você também pode instalar a GEM diretamente:
 
     $ gem install m2y_lydians
 
-## Usage
+## Como usar
 
-TODO: Write usage instructions here
+Cria um arquivo `lydians.rb` no diretório `config/initializers` com o seguinte conteúdo:
 
-## Development
+```ruby
+M2yLydians.configure do |config|
+  config.certification = "Certificado da Lydians"
+  config.server_url = "URL do servidor da Lydians"
+  config.pix_server_url = "URL PIX do servidor da Lydians"
+  config.pix_certification = "Certificado PIX da Lydians"
+  config.env = Rails.env.production? ? 'PRD' : 'HMG'
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+e então use os métodos da GEM onde forem necessários:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+M2yLydians::Billet.generate_billet(body)
+...
+M2yLydians::Pix.get_pix_banks
+...
+M2yLydians::Transaction.cancel_transaction(body)
+...
+```
 
-## Contributing
+## Licença
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/m2y_lydians. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/m2y_lydians/blob/master/CODE_OF_CONDUCT.md).
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the M2yLydians project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/m2y_lydians/blob/master/CODE_OF_CONDUCT.md).
+[MIT License](https://opensource.org/licenses/MIT).
